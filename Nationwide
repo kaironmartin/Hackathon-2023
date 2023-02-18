@@ -1,0 +1,144 @@
+import java.util.Scanner;       // user input
+import javax.swing.JOptionPane;    // allows user to utilize GUI
+
+
+/**
+ * Write a description of class Nationwide here.
+ * Algorithm: 
+ 1.Start program​
+
+2. Welcome screen ​
+
+ 2.1 "Welcome to the Nationwide Account Portal!" ​
+
+3. Input Credentials ​
+
+3.1 Input valid user - Check against array userID{5132, 4893, 0562, 2651} - If correct, proceed - If incorrect, try again​
+
+ 3.2 Input Password - Check against user pass{813, 211, 023, 452} - If correct, proceed - If incorrect, try again 4 times - If still incorrect lockout/kickout​
+
+4. Account Selection​
+
+ 4.1 "Please select your account type" ​
+
+4.2 Drop down menu - Insurance - Retirement - Smart Credit -Quit​
+
+5. Input Credentials ​
+
+5.1 Input valid user - Check against array userID{5132, 4893, 0562, 2651} - If correct, proceed - If incorrect, try again​
+
+ 5.2 Input Password - Check against user pass{813, 211, 023, 452} - If correct, proceed - If incorrect, try again 4 times - If still incorrect lockout/kickout​
+
+ 6. Change Password - "Password must have _____" - Input from user - Has to meet requirements​
+
+7. End program​
+
+ * @author Kairon Martin, Lenasha Williams, Quentin Glass, Camden Wallace
+ * @version 2/17/23
+ */
+public class Nationwide
+{
+    public static void main (String[] args)
+    {
+        //Variables
+        
+        int user; 
+        int pass;
+        String inputUser;
+        String inputPass;
+        
+        //Arrays
+        String [] menuOptions = {"a. Insurance", "b. Retirement", "c. Smart Credit", "d. Quit"};
+        int [] userID = {5132, 4893, 0562, 2651};
+        int [] userPass = {813, 211, 023, 452};
+        
+        String [] securityQuestions = {"What is your mother's maiden name?", "What is your pet's name", "What city were you born in?", "Where was your first job?"};
+        String [] securityAnswers = {"Jones", "Kiki", "Winston", "Georgia"};
+        
+        final int MEMBERS = 4;      // size holder
+        
+        // final int OPTIONS = 1;
+        int wrongcount = 0;
+        boolean valid = false;
+        
+        //Scanners          
+        Scanner keyboard = new Scanner(System.in);      //default for user input
+        // testNationwide test = new testNationwide();     //connects to working class for menu options
+        
+   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////     
+        //Display Welcome Screen
+        JOptionPane.showMessageDialog(null, "Welcome to the Nationwide Management Porta!");
+        
+        
+        //Access Account
+        inputUser = JOptionPane.showInputDialog("Please input your UserID: ");
+        user = Integer.parseInt(inputUser);
+        //input pin number
+            inputPass = JOptionPane.showInputDialog("Please input PIN number: ");
+                pass = Integer.parseInt(inputPass);
+                
+                
+                //entry access/ denied access
+                for (int index = 0; index < MEMBERS; index++)
+        {
+          
+            if ( user == userID[index])
+            {
+               
+                     if ((pass == userPass[index] ))
+                {
+                                       valid = true;
+                    JOptionPane.showMessageDialog(null, "PIN number is valid.");
+                    Object selectedOption= JOptionPane.showInputDialog(null,"Please select your account type: ", "Input",
+                                                JOptionPane.INFORMATION_MESSAGE, null, menuOptions, menuOptions[index]);          
+                }
+                   
+                 for (int i = 0; i< 2; i++)
+                 {
+                    if (! (user == userID[index]))
+                {
+                    wrongcount++;
+                    valid = false;
+                    JOptionPane.showMessageDialog(null, "UserID is invalid. Try Again.");
+    
+                    
+                    inputUser = JOptionPane.showInputDialog("Please input your UserID: ");
+                    user = Integer.parseInt(inputUser);
+                    if (wrongcount == 3)
+                    {
+                        JOptionPane.showMessageDialog(null, "Please contact Nationwide Support at: 1-877-669-6877");
+                    }
+                } 
+                  
+                for (int index1= 0; index1< 3; index1++)
+                {
+                    if(!(pass == userPass[index] ))
+                {
+                    wrongcount++;
+                    valid = false;
+                    JOptionPane.showMessageDialog(null, "PIN number is invalid. Try Again.");
+                    
+                    inputPass = JOptionPane.showInputDialog("Please input PIN number: ");
+                    pass = Integer.parseInt(inputPass);
+                    if (wrongcount == 3)
+                    {
+                        JOptionPane.showMessageDialog(null, "Please contact Nationwide Support at: 1-877-669-6877");
+                    }
+                    
+                        if ((pass == userPass[index] ))
+                {
+                                       valid = true;
+                    JOptionPane.showMessageDialog(null, "PIN number is valid.");
+                    Object selectedOption= JOptionPane.showInputDialog(null,"Please select your account type: ", "Input",
+                                                JOptionPane.INFORMATION_MESSAGE, null, menuOptions, menuOptions[index]);          
+                }
+                }
+            }
+            
+            return;
+        }
+        
+    }
+}
+}
+}
