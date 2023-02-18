@@ -5,7 +5,8 @@ import javax.swing.JOptionPane;    // allows user to utilize GUI
 /**
  * Write a description of class Nationwide here.
  * Algorithm: 
- 1.Start program​
+ 
+ 1.Start Algorithm​
 
 2. Welcome screen ​
 
@@ -23,15 +24,10 @@ import javax.swing.JOptionPane;    // allows user to utilize GUI
 
 4.2 Drop down menu - Insurance - Retirement - Smart Credit -Quit​
 
-5. Input Credentials ​
+ 5. Change Password - "Password must have _____" - Input from user - Has to meet requirements​
 
-5.1 Input valid user - Check against array userID{5132, 4893, 0562, 2651} - If correct, proceed - If incorrect, try again​
+6. End Algorithm​
 
- 5.2 Input Password - Check against user pass{813, 211, 023, 452} - If correct, proceed - If incorrect, try again 4 times - If still incorrect lockout/kickout​
-
- 6. Change Password - "Password must have _____" - Input from user - Has to meet requirements​
-
-7. End program​
 
  * @author Kairon Martin, Lenasha Williams, Quentin Glass, Camden Wallace
  * @version 2/17/23
